@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASISA // Portfolio</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@300;500;800&family=Orbitron:wght@900&display=swap');
+
+    :root {
+        --bg: #ffffff;
+        --glass: rgba(0, 157, 255, 0.05);
+        --border: rgba(0, 157, 255, 0.2);
+        --highlight: #009dff; /* Sky Blue */
+        --text-main: #1a1a1a;
+        --text-sub: #555555;
+    }
+
+    * { 
+        margin: 0; 
+        padding: 0; 
+        box-sizing: border-box; 
+        font-family: 'Inter', sans-serif; 
+    }
+
+    body { 
+        background-color: var(--bg); 
+        color: var(--text-main); 
+        padding: 2rem; 
+        overflow-x: hidden; 
+        /* Soft Sky Blue Gradient */
+        background-image: radial-gradient(circle at 50% 0%, #eef9ff 0%, #ffffff 70%);
+        min-height: 100vh;
+    }
+
+    nav { 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        margin-bottom: 4rem; 
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .logo { 
+        font-family: 'Syncopate', sans-serif; 
+        font-size: 1.5rem; 
+        letter-spacing: 2px;
+        color: var(--text-main);
+    }
+
+    .nav-links a { 
+        color: var(--text-main); 
+        text-decoration: none; 
+        margin-left: 20px; 
+        opacity: 0.7; 
+        transition: 0.3s; 
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+    .nav-links a:hover { 
+        opacity: 1; 
+        color: var(--highlight); 
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    header { 
+        text-align: center; 
+        margin-bottom: 6rem; 
+        margin-top: 4rem;
+    }
+
+    .profile-container {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 2rem auto;
+        border-radius: 50%;
+        border: 2px solid var(--highlight);
+        padding: 5px;
+        position: relative;
+        background: white;
+    }
+
+    .profile-pic {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: #f0f8ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    header h1 { 
+        font-size: clamp(2.5rem, 8vw, 5rem); 
+        font-family: 'Syncopate', sans-serif; 
+        letter-spacing: -2px;
+        color: var(--text-main);
+    }
+
+    .vibe { 
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 900;
+        font-size: 1.1em;
+        letter-spacing: 5px;
+        /* Sky Blue Outline */
+        -webkit-text-stroke: 1px var(--highlight); 
+        color: transparent; 
+        text-shadow: 0 0 15px rgba(0, 157, 255, 0.2); 
+    }
+
+    header p {
+        font-family: 'Syncopate', sans-serif;
+        letter-spacing: 4px;
+        color: var(--text-sub);
+        font-size: 1rem;
+        margin-top: 15px;
+        text-transform: uppercase;
+    }
+
+    section {
+        margin-bottom: 6rem;
+    }
+
+    .section-title {
+        font-family: 'Syncopate', sans-serif;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: var(--text-main);
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 1rem;
+    }
+
+    .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .skill-tag {
+        background: white;
+        border: 1px solid var(--border);
+        padding: 15px 30px;
+        border-radius: 30px;
+        font-family: 'Syncopate', sans-serif;
+        font-size: 0.9rem;
+        color: var(--text-sub);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        transition: 0.3s;
+    }
+
+    .skill-tag:hover {
+        border-color: var(--highlight);
+        color: var(--highlight);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 157, 255, 0.15);
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 30px;
+        transition: 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .card:hover {
+        border-color: var(--highlight);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 157, 255, 0.1);
+    }
+
+    .card h3 {
+        font-family: 'Syncopate', sans-serif;
+        font-size: 1.2rem;
+        color: var(--highlight);
+        margin-bottom: 15px;
+    }
+
+    .card p {
+        color: var(--text-sub);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        display: inline-block;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        border: 1px solid var(--highlight);
+        color: var(--highlight);
+        transition: 0.3s;
+        text-align: center;
+    }
+
+    .btn:hover {
+        background: var(--highlight);
+        color: white;
+    }
+
+    .cert-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        border: 1px solid var(--border);
+        transition: 0.3s;
+    }
+
+    .card:hover .cert-img {
+        border-color: var(--highlight);
+        transform: scale(1.03);
+    }
+
+    .cert-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--text-main);
+    }
+
+    .contact-form {
+        background: white;
+        padding: 40px;
+        border-radius: 30px;
+        border: 1px solid var(--border);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        max-width: 600px;
+    }
+
+    input, textarea { 
+        width: 100%; 
+        padding: 15px; 
+        margin-bottom: 15px; 
+        background: #f9fcff; 
+        border: 1px solid var(--border); 
+        border-radius: 10px; 
+        color: var(--text-main); 
+        font-size: 1rem;
+    }
+
+    button { 
+        width: 100%; 
+        padding: 15px; 
+        background: var(--highlight); 
+        color: white;
+        font-weight: 800; 
+        border-radius: 10px; 
+        cursor: pointer; 
+        border: none;
+        transition: 0.3s;
+        text-transform: uppercase;
+    }
+
+    button:hover {
+        background: #007cc9; /* Darker blue */
+        box-shadow: 0 5px 15px rgba(0, 157, 255, 0.3);
+    }
+
+    footer { 
+        text-align: center; 
+        margin-top: 4rem; 
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+        color: var(--text-sub); 
+        font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+        header h1 { font-size: 2.5rem; }
+        .nav-links { display: none; }
+    }
+</style>
+</head>
+<body>
+    <nav>
+        <div class="logo">ASISA.DEV</div>
+        <div class="nav-links">
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+    <div class="profile-container">
+        <div class="profile-pic">
+            <img src="D:\Asisa\Certificates\Screenshot 2026-04-14 153959.png" alt="profile-container" class="cert-img">
+        </div>
+    </div>
+    <h1>HELLO, I'M <span class="vibe">ASISA</span></h1>
+    <p>Developer | Programmer</p>
+</header>
+
+        <section id="skills">
+            <h2 class="section-title">SKILL SET</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">C</div>
+                <div class="skill-tag">HTML</div>
+                <div class="skill-tag">CSS</div>
+                <div class="skill-tag">Java</div>
+                <div class="skill-tag">Web Development</div>
+
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">THE VAULT</h2>
+            <div class="grid-container">
+                
+                <div class="card">
+                    <div>
+                        <h3>Space Workbook Project</h3>
+                        <p>An immersive exploration of the cosmos featuring interactive navigation, visual guides to the solar system, and integrated live wiki data.</p>
+                    </div>
+                    <a href="file:///D:/Asisa/index.html" class="btn">Launch Local Project</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Python Practice Repository</h3>
+                        <p>A comprehensive collection of my programming journey, featuring algorithmic problem solving, data structure implementations, and script automation in Python.</p>
+                    </div>
+                    <a href="https://github.com/Asisa-03/python_practise" class="btn" target="_blank">View GitHub</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="certifications">
+    <h2 class="section-title">CREDENTIALS</h2>
+    <div class="grid-container">
+        <div class="card">
+            <img src="file:///D:/Asisa/Certificates/Cisco1%20Certificate.png" alt="Cisco Certificate 1" class="cert-img">
+            <div class="cert-info">
+                <span class="cert-icon">✦</span>
+                <span class="cert-name">Cisco CCST I</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="file:///D:/Asisa/Certificates/Cisco2%20Certificate.png" alt="Cisco Certificate 2" class="cert-img">
+            <div class="cert-info">
+                <span class="cert-icon">✦</span>
+                <span class="cert-name">Cisco CCST II</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="file:///D:/Asisa/Certificates/Gemini%20Certificate.png" alt="Gemini Certificate" class="cert-img">
+            <div class="cert-info">
+                <span class="cert-icon">✦</span>
+                <span class="cert-name">Gemini AI Mastery</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="file:///D:/Asisa/Certificates/Screenshot%202026-04-14%20150948.png" alt="Certificate Screenshot" class="cert-img">
+            <div class="cert-info">
+                <span class="cert-icon">✦</span>
+                <span class="cert-name">Technical Achievement I</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="file:///D:/Asisa/Certificates/Screenshot%202026-04-14%20151423.png" alt="Certificate Screenshot" class="cert-img">
+            <div class="cert-info">
+                <span class="cert-icon">✦</span>
+                <span class="cert-name">Technical Achievement II</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="file:///D:/Asisa/Certificates/Screenshot%202026-04-14%20151823.png" alt="Certificate Screenshot" class="cert-img">
+            <div class="cert-info">
+                <span class="cert-icon">✦</span>
+                <span class="cert-name">Professional Growth III</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="file:///D:/Asisa/Certificates/Screenshot%202026-04-14%20151927.png" alt="Certificate Screenshot" class="cert-img">
+            <div class="cert-info">
+                <span class="cert-icon">✦</span>
+                <span class="cert-name">Skill Verification IV</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="file:///D:/Asisa/Certificates/IBM%20Certificate.png" alt="IBM Certificate" class="cert-img">
+            <div class="cert-info">
+                <span class="cert-icon">✦</span>
+                <span class="cert-name">IBM Developer</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="file:///D:/Asisa/Certificates/JavaScript%20Certificate.jpeg" alt="JavaScript Certificate" class="cert-img">
+            <div class="cert-info">
+                <span class="cert-icon">✦</span>
+                <span class="cert-name">JS Logic & Algorithms</span>
+            </div>
+        </div>
+    </div>
+</section>
+        <section id="contact">
+            <h2 class="section-title">CONNECT WITH ME</h2>
+            <div class="contact-form">
+                <form action="#">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Message Protocol" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ASISA // SYSTEM ONLINE</p>
+    </footer>
+</body>
+</html>
